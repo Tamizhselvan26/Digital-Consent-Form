@@ -1,0 +1,128 @@
+<html>
+<body style="background-color:rgb(100,86,7)">
+<head>
+<center>
+<title> Madura Coats</title>
+</head>
+<style>
+Body {  
+  font-family: Calibri, Helvetica, sans-serif;  
+    
+}  
+
+ form {   
+        border: 3px solid #f1f1f1;   
+    }   
+ input[type=text], input[type=password] {   
+        width: 60%;   
+        margin: 8px 0;  
+        padding: 10px 10px;   
+        display: inline-block;   
+        border: 2px solid green;   
+        box-sizing: border-box;   
+    }  
+ button:hover {   
+        opacity: 0.7;   
+    }   
+  
+        
+     
+ .container {   
+        padding: 15px;   
+        background-color:rgb(153,132,10);  
+    }   
+</style>   
+<script>
+function validateForm() {
+
+    var pw1 = document.getElementById("pswd1").value;
+    var pw2 = document.getElementById("pswd2").value;
+    var name1 = document.getElementById("fname").value;
+    var email=document.getElementById("email").value;
+    
+    if(name1 == "") {
+      document.getElementById("blankMsg").innerHTML = "**Fill the first name";
+      return false;
+    }
+    
+
+    if(!isNaN(name1)){
+      document.getElementById("blankMsg").innerHTML = "**Only characters are allowed";
+      return false;
+    } 
+     
+    
+
+    if(pw1 == "") {
+      document.getElementById("message1").innerHTML = "**Fill the password please!";
+      return false;
+    }
+  
+    if(pw2 == "") {
+      document.getElementById("message2").innerHTML = "**Enter the password please!";
+      return false;
+    } 
+   
+
+    if(pw1.length < 8) {
+      document.getElementById("message1").innerHTML = "**length must be atleast 8 characters";
+      return false;
+    }
+
+    if(pw1.length > 15) {
+      document.getElementById("message1").innerHTML = "**length must not exceed 15 characters";
+      return false;
+    }
+  
+    if(pw1 != pw2) {
+      document.getElementById("message2").innerHTML = "**Passwords are not same! Retry with new Password";
+      return false;
+    } else {
+      alert ("login successful");
+      
+    }
+ }
+</script>
+
+
+<body>
+
+
+
+ 
+
+
+
+
+<h1 style="color:black">Madura Coats</h1>
+ <div class="container">   
+<h3>  Please Fill the form  </h3>
+
+<form onsubmit ="return validateForm()" action="insert.php">
+
+
+<td> Full Name* </td>
+<input type = "text" name="name" id = "fname" value = ""> 
+<span id = "blankMsg" style="color:black"> </span> <br><br>
+
+
+<td> Enter Password* </td>
+<input type = "password" name="password" id = "pswd1" value = ""> 
+<span id = "message1" style="color:white"> </span> <br><br>
+
+<td> Confirm Password* </td>
+<input type = "password" id = "pswd2" value = ""> 
+<span id = "message2" style="color:white"> </span> <br><br>
+<td> Email id </td>
+<input type = "text" name="mail" id = "email" value = ""> 
+<span id = "blankMsg" style="color:white"> </span> <br><br>
+
+
+<input type = "submit" value = "Submit" name="btn">
+
+<button type = "reset" value = "Reset" >Reset</button>
+</div>
+</form>
+</body>
+</center>
+</html>
